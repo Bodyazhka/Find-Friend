@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Find Friend</string>
+    <string name="mail">Почта</string>
+    <string name="name">Имя</string>
+    <string name="passion">Увлечение</string>
+    <string name="password">Пароль</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="log_in">Войти</string>
+    <string name="or">или</string>
+    <string name="settings">Настройки</string>
+    <string name="default_notification_channel_id">FINDRIEND</string>
+</resources>

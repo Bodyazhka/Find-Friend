@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "452657225536",
+    "firebase_url": "https://find-friend-5c246-default-rtdb.firebaseio.com",
+    "project_id": "find-friend-5c246",
+    "storage_bucket": "find-friend-5c246.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452657225536:android:9f9535039f95d93bcc64a5",
+        "android_client_info": {
+          "package_name": "com.example.findfriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452657225536-mkuj155egto6ehdkbkt5j4oms5q8qstd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRGho-zNhwJT1yEfmebXX_c3dSe6KaDnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452657225536-mkuj155egto6ehdkbkt5j4oms5q8qstd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
