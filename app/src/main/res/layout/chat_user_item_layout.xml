@@ -24,8 +24,7 @@
             android:layout_margin="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/Circle"
-            app:srcCompat="@drawable/girl" />
+            app:shapeAppearanceOverlay="@style/Circle" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/user_name"

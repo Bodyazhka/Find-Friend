@@ -10,14 +10,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.findfriend.MainActivity
 import com.example.findfriend.R
-import com.example.findfriend.data.User
 import com.example.findfriend.databinding.FragmentLoginBinding
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
@@ -62,9 +59,8 @@ class LoginFragment : Fragment() {
                 }
 
                 lifecycleScope.launch {
-                    MainActivity.allUsers.collect {
-                        println(it)
-                        it.forEach {
+                    MainActivity.allUsers.collect { users ->
+                        users.forEach {
                             if (it.email == email && it.password == password) {
                                 if (!sharedPreferences.contains("userId")) {
                                     val editor = sharedPreferences.edit()
@@ -72,6 +68,7 @@ class LoginFragment : Fragment() {
                                     editor.apply()
                                 }
                                 findNavController().navigate(R.id.action_loginFragment_to_mapFragment)
+                                return@collect
                             }
                         }
                     }
@@ -80,8 +77,6 @@ class LoginFragment : Fragment() {
 
             registerButton.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-
-                //writeNewUser("nedelev5855@gmail.com", "Богдан", "Книги", "gogo", "", null)
             }
         }
     }

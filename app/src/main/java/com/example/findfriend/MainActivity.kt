@@ -26,10 +26,11 @@ class MainActivity : AppCompatActivity() {
 
 
     companion object {
-        private val _allUsers: MutableStateFlow<MutableList<User>> = MutableStateFlow(mutableListOf())
+        val _allUsers: MutableStateFlow<MutableList<User>> = MutableStateFlow(mutableListOf())
         val allUsers = _allUsers.asStateFlow()
         val userId = UUID.randomUUID().toString()
         lateinit var database: DatabaseReference
+        var checkUsersState: Boolean = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         val navController = navHostFragment.navController
 
-        val sharedPref = this.getSharedPreferences(MYSETT, Context.MODE_PRIVATE)
+        //val sharedPref = this.getSharedPreferences(MYSETT, Context.MODE_PRIVATE)
 
 
         database = Firebase.database.reference.child("users")
@@ -56,24 +57,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 _allUsers.value = users
+                checkUsersState = true
             }
 
             override fun onCancelled(error: DatabaseError) {
             }
         })
-/*
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                println(task.exception)
-                return@OnCompleteListener
-            }
-
-            // Get new FCM registration token
-            val token = task.result
-
-            // Log and toast
-            println(token)
-           // Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-        })*/
     }
 }
